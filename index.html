@@ -89,8 +89,8 @@
 
         /* ===== PROFILE IMAGE STYLES ===== */
         .profile-image {
-            width: 300px; /* ความกว้าง */
-            height: 300px; /* ความสูง */
+            width: auto; /* ความกว้าง */
+            height: auto; /* ความสูง */
             border-radius: 20px; /* มุมโค้ง */
             background: rgba(255, 255, 255, 0.1); /* พื้นหลังโปร่งใส */
             backdrop-filter: blur(10px); /* เอฟเฟค blur */
@@ -105,7 +105,7 @@
 
         /* สไตล์สำหรับรูปภาพจริง */
         .profile-image img {
-            width: 100%; /* ความกว้างเต็ม */
+            width: 200px; /* ความกว้างเต็ม */
             height: 100%; /* ความสูงเต็ม */
             object-fit: cover; /* ปรับขนาดรูปให้พอดี */
             border-radius: 17px; /* มุมโค้งเล็กน้อย */
@@ -294,7 +294,7 @@
         .section-about-title {
             font-size: 2.5rem; /* ขนาดตัวอักษรใหญ่ */
             text-align: center; /* จัดกึ่งกลาง */
-            margin-bottom: 10px; /* ระยะห่างด้านล่าง */
+            margin-bottom: 80px; /* ระยะห่างด้านล่าง */
             color: #333; /* สีเทาเข้ม */
             font-weight: 700; /* ความหนาของตัวอักษร */
         }
@@ -780,193 +780,198 @@
         <div class="nav-content">
             <div class="logo"></div>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
+                <li><a href="#home1">Home</a></li>
+                <li><a href="#about1">About</a></li>
+                <li><a href="#skills1">Skills</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#education">Education</a></li>
             </ul>
         </div>
     </nav>
     <!-- Header Section -->
-    <section id="home" class="header">
-    <img src="background.png" alt="Background" class="bg-img">
-        <div class="container ">
-            <div class="header-content">
-                <div class="hero-text">
-                    <h1 class="hero-title">Chaianun Yamtuan</h1>
-                    <p class="hero-subtitle">Software Tester (Manual / Automated)</p>
-                    <p class="hero-description">
-                        นักศึกษาชั้นปีที่ 4 สาขาเทคโนโลยีสารสนเทศ มีความสนใจด้าน Software Testing 
-                        และมีประสบการณ์ในการเขียน test case, รายงานบั๊ก และทำงานร่วมกับทีมพัฒนา
-                        เพื่อปรับปรุงคุณภาพซอฟต์แวร์
-                    </p>
-                    <div class="cta-buttons">
-                        <a href="#about" class="btn btn-primary">About Me</a>
-                        <a href="mailto:chaianuntor@gmail.com" class="btn btn-outline">ติดต่อ</a>
+    <section id="home1">
+        <section id="home" class="header">
+        <img src="background.png" alt="Background" class="bg-img">
+            <div class="container ">
+                <div class="header-content">
+                    <div class="hero-text">
+                        <h1 class="hero-title">Chaianun Yamtuan</h1>
+                        <p class="hero-subtitle">Software Tester (Manual / Automated)</p>
+                        <p class="hero-description">
+                            นักศึกษาชั้นปีที่ 4 สาขาเทคโนโลยีสารสนเทศ มีความสนใจด้าน Software Testing 
+                            และมีประสบการณ์ในการเขียน test case, รายงานบั๊ก และทำงานร่วมกับทีมพัฒนา
+                            เพื่อปรับปรุงคุณภาพซอฟต์แวร์
+                        </p>
+                        <div class="cta-buttons">
+                            <a href="#about" class="btn btn-primary">About Me</a>
+                            <a href="mailto:chaianuntor@gmail.com" class="btn btn-outline">ติดต่อ</a>
+                        </div>
+                        
                     </div>
-                    
-                </div>
-                <div class="hero-image">
-                    <div class="profile-image">
-                        <div class="profile-placeholder">👨‍💻</div>
-                        <!-- Replace with: <img src="your-profile-image.jpg" alt="Chaianun Yaemtuan"> -->
+                    <div class="hero-image">
+                        <div class="profile-image">
+                            <!-- <div class="profile-placeholder">👨‍💻</div> -->
+                            <img src="Profile_AI.png" alt="Chaianun Yaemtuan">
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     </section>
-
     <!-- About Section -->
-    <section id="about" class="section about trigger-section">
-            <div class="about-Box fade-in ">      
-                <h2 class="section-about-title fade-in">About Me</h2>
-                <p class="section-about-subtitle fade-in">เรื่องราวและประสบการณ์ของฉัน</p>
-            </div>
-
-
-            <div class="about-content fade-in">
-                <div class="about-text">
-                    <p>
-                        ฉันเป็นนักศึกษาชั้นปีที่ 4 สาขาเทคโนโลยีสารสนเทศ มีความสนใจด้าน <strong>Software Testing</strong> โดยเคยฝึกงานในตำแหน่ง 
-                        <strong>Software Tester</strong> มีประสบการณ์ในการเขียน Test Case, รายงานบั๊ก (Bug Report) และทำงานร่วมกับทีมพัฒนาเพื่อปรับปรุงคุณภาพของซอฟต์แวร์ 
-                        นอกจากนี้ยังมีประสบการณ์ในการดูแลระบบไอทีในบทบาท IT Support ของบริษัท เช่น การสนับสนุนผู้ใช้งานและการแก้ไขปัญหาทางเทคนิคเบื้องต้น
-                    </p>
-                    <p>
-                        ฉันเคยปฏิบัติงานเป็นผู้ช่วยสอนในห้องปฏิบัติการคอมพิวเตอร์ มีทักษะในการดูแลและบำรุงรักษาฮาร์ดแวร์ 
-                        รวมถึงความรู้พื้นฐานด้านการเขียนโปรแกรมและระบบเครือข่ายเบื้องต้น 
-                        พร้อมเปิดรับการเรียนรู้และพัฒนาตนเองอย่างต่อเนื่องในสายงานเทคโนโลยีสารสนเทศ
-                    </p>
+    <section id="about1">
+        <section id="about" class="section about trigger-section fade-in">
+                <div class="about-Box fade-in ">      
+                    <h2 class="section-about-title fade-in">About Me</h2>
+                    <p class="section-about-subtitle fade-in">เรื่องราวและประสบการณ์ของฉัน</p>
                 </div>
-            </div>
+
+
+                <div class="about-content fade-in">
+                    <div class="about-text fade-in">
+                        <p>
+                            ฉันเป็นนักศึกษาชั้นปีที่ 4 สาขาเทคโนโลยีสารสนเทศ มีความสนใจด้าน <strong>Software Testing</strong> โดยเคยฝึกงานในตำแหน่ง 
+                            <strong>Software Tester</strong> มีประสบการณ์ในการเขียน Test Case, รายงานบั๊ก (Bug Report) และทำงานร่วมกับทีมพัฒนาเพื่อปรับปรุงคุณภาพของซอฟต์แวร์ 
+                            นอกจากนี้ยังมีประสบการณ์ในการดูแลระบบไอทีในบทบาท IT Support ของบริษัท เช่น การสนับสนุนผู้ใช้งานและการแก้ไขปัญหาทางเทคนิคเบื้องต้น
+                        </p>
+                        <p>
+                            ฉันเคยปฏิบัติงานเป็นผู้ช่วยสอนในห้องปฏิบัติการคอมพิวเตอร์ มีทักษะในการดูแลและบำรุงรักษาฮาร์ดแวร์ 
+                            รวมถึงความรู้พื้นฐานด้านการเขียนโปรแกรมและระบบเครือข่ายเบื้องต้น 
+                            พร้อมเปิดรับการเรียนรู้และพัฒนาตนเองอย่างต่อเนื่องในสายงานเทคโนโลยีสารสนเทศ
+                        </p>
+                    </div>
+                </div>
+        </section>
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="section skills">
-        <div class="container">
-            <h2 class="section-title fade-in">Skills & Expertise</h2>
-            <p class="section-subtitle fade-in">ทักษะและความเชี่ยวชาญของฉัน</p>
-            
-            <div class="skills-grid fade-in">
-                <div class="skill-card">
-                    <h3 class="skill-category-title">Technical Skills</h3>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <div class="skill-logo">
-                                <img src="htmlCss.png" alt="Html/css">
-                            </div>                            
-                            <span>HTML / CSS</span>
-                        </div>
-                        <span class="skill-level level-good">ปานกลาง</span>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <div class="skill-logo">
-                                <img src="PlayWright.png" alt="PlayWright">
-                            </div>                             
-                            <span>Playwright</span>
-                        </div>
-                        <span class="skill-level level-good">ปานกลาง</span>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <div class="skill-logo"><b>T</b></div>
-                            
-                            <span>Test Case Writing</span>
-                        </div>
-                        <span class="skill-level level-good">ปานกลาง</span>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <div class="skill-logo"><b>B</b></div>
-                            <span>Bug Reporting</span>
-                        </div>
-                        <span class="skill-level level-good">ปานกลาง</span>
-                    </div>
-                </div>
-
-                <div class="skill-card">
-                    <h3 class="skill-category-title">Office & Design</h3>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <div class="skill-logo">
-                                <img src="word.png" alt="word">
-                            </div>                            
-                            <span>Microsoft Word</span>
-                        </div>
-                        <span class="skill-level level-excellent">ดี</span>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <div class="skill-logo">
-                                <img src="PowerPoint.png" alt="PowerPoint">
-                            </div>    
-                            <span>PowerPoint</span>
-                        </div>
-                        <span class="skill-level level-excellent">ดี</span>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <div class="skill-logo">
-                                <img src="excel.png" alt="excel">
-                            </div>                              
-                            <span>Excel</span>
-                        </div>
-                        <span class="skill-level level-good">ปานกลาง</span>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <div class="skill-logo">
-                                <img src="googleSheet.png" alt="Google Sheets logo">
+    <section id="skills1" class="section skills">
+        <section id="skills" class="section skills">
+            <div class="container">
+                <h2 class="section-title fade-in">Skills & Expertise</h2>
+                <p class="section-subtitle fade-in">ทักษะและความเชี่ยวชาญของฉัน</p>
+                
+                <div class="skills-grid fade-in">
+                    <div class="skill-card">
+                        <h3 class="skill-category-title">Technical Skills</h3>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <div class="skill-logo">
+                                    <img src="htmlCss.png" alt="Html/css">
+                                </div>                            
+                                <span>HTML / CSS</span>
                             </div>
-                            <span> Google Sheet</span>
+                            <span class="skill-level level-good">ปานกลาง</span>
                         </div>
-                        <span class="skill-level level-good">ปานกลาง</span>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <div class="skill-logo">
-                                <img src="canva.png" alt="canva">
-                            </div>                              
-                            <span>Canva</span>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <div class="skill-logo">
+                                    <img src="PlayWright.png" alt="PlayWright">
+                                </div>                             
+                                <span>Playwright</span>
+                            </div>
+                            <span class="skill-level level-good">ปานกลาง</span>
                         </div>
-                        <span class="skill-level level-excellent">ดี</span>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <div class="skill-logo"><b>T</b></div>
+                                
+                                <span>Test Case Writing</span>
+                            </div>
+                            <span class="skill-level level-good">ปานกลาง</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <div class="skill-logo"><b>B</b></div>
+                                <span>Bug Reporting</span>
+                            </div>
+                            <span class="skill-level level-good">ปานกลาง</span>
+                        </div>
                     </div>
-                </div>
 
-                <div class="skill-card">
-                    <h3 class="skill-category-title">Soft Skills</h3>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <div class="skill-logo">⏰</div>
-                            <span>จัดการบริหารเวลา</span>
+                    <div class="skill-card">
+                        <h3 class="skill-category-title">Office & Design</h3>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <div class="skill-logo">
+                                    <img src="word.png" alt="word">
+                                </div>                            
+                                <span>Microsoft Word</span>
+                            </div>
+                            <span class="skill-level level-excellent">ดี</span>
                         </div>
-                        <!-- <span class="skill-level level-excellent">ดีมาก</span> -->
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <div class="skill-logo">
+                                    <img src="PowerPoint.png" alt="PowerPoint">
+                                </div>    
+                                <span>PowerPoint</span>
+                            </div>
+                            <span class="skill-level level-excellent">ดี</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <div class="skill-logo">
+                                    <img src="excel.png" alt="excel">
+                                </div>                              
+                                <span>Excel</span>
+                            </div>
+                            <span class="skill-level level-good">ปานกลาง</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <div class="skill-logo">
+                                    <img src="googleSheet.png" alt="Google Sheets logo">
+                                </div>
+                                <span> Google Sheet</span>
+                            </div>
+                            <span class="skill-level level-good">ปานกลาง</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <div class="skill-logo">
+                                    <img src="canva.png" alt="canva">
+                                </div>                              
+                                <span>Canva</span>
+                            </div>
+                            <span class="skill-level level-excellent">ดี</span>
+                        </div>
                     </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <div class="skill-logo">🤝</div>
-                            <span>ความร่วมมือเป็นทีม</span>
+
+                    <div class="skill-card">
+                        <h3 class="skill-category-title">Soft Skills</h3>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <div class="skill-logo">⏰</div>
+                                <span>จัดการบริหารเวลา</span>
+                            </div>
+                            <!-- <span class="skill-level level-excellent">ดีมาก</span> -->
                         </div>
-                        <!-- <span class="skill-level level-excellent">ดีมาก</span> -->
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <div class="skill-logo">💡</div>
-                            <span>แก้ไขปัญหาเฉพาะหน้า</span>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <div class="skill-logo">🤝</div>
+                                <span>ความร่วมมือเป็นทีม</span>
+                            </div>
+                            <!-- <span class="skill-level level-excellent">ดีมาก</span> -->
                         </div>
-                        <!-- <span class="skill-level level-good">ปานกลาง</span> -->
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <div class="skill-logo">👁️</div>
-                            <span>ความใส่ใจในรายละเอียด</span>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <div class="skill-logo">💡</div>
+                                <span>แก้ไขปัญหาเฉพาะหน้า</span>
+                            </div>
+                            <!-- <span class="skill-level level-good">ปานกลาง</span> -->
                         </div>
-                        <!-- <span class="skill-level level-excellent">ดีมาก</span> -->
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <div class="skill-logo">👁️</div>
+                                <span>ความใส่ใจในรายละเอียด</span>
+                            </div>
+                            <!-- <span class="skill-level level-excellent">ดีมาก</span> -->
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     </section>
 
     <!-- Experience Section -->
