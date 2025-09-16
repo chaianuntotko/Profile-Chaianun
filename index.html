@@ -1,473 +1,723 @@
-
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- ทำให้เว็บไซต์รองรับ responsive design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ทำให้เว็บไซต์รองรับ responsive design -->
     <title>Chaianun Yaemtuan - Profile</title>
     <style>
         /* CSS Reset - รีเซ็ตค่า default ของ browser */
         * {
-            margin: 0; /* ลบ margin ทั้งหมด */
-            padding: 0; /* ลบ padding ทั้งหมด */
-            box-sizing: border-box; /* ทำให้ width/height รวม padding และ border */
+            margin: 0;
+            /* ลบ margin ทั้งหมด */
+            padding: 0;
+            /* ลบ padding ทั้งหมด */
+            box-sizing: border-box;
+            /* ทำให้ width/height รวม padding และ border */
         }
 
         /* กำหนดสไตล์พื้นฐานสำหรับ body */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* กำหนดฟอนต์ */
-            line-height: 1.6; /* ระยะห่างระหว่างบรรทัด */
-            color: #333; /* สีข้อความเป็นสีเทาเข้ม */
-            overflow-x: hidden; /* ซ่อน horizontal scrollbar */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* กำหนดฟอนต์ */
+            line-height: 1.6;
+            /* ระยะห่างระหว่างบรรทัด */
+            color: #333;
+            /* สีข้อความเป็นสีเทาเข้ม */
+            overflow-x: hidden;
+            /* ซ่อน horizontal scrollbar */
         }
 
         /* Container หลักสำหรับจัดกึ่งกลางเนื้อหา */
         .container {
-            max-width: 1200px; /* ความกว้างสูงสุด */
-            margin: 0 auto; /* จัดกึ่งกลาง */
-            padding: 0 20px; /* padding ซ้ายขวา */
+            max-width: 1200px;
+            /* ความกว้างสูงสุด */
+            margin: 0 auto;
+            /* จัดกึ่งกลาง */
+            padding: 0 20px;
+            /* padding ซ้ายขวา */
             margin-top: -120px;
+        }
+
+        .containerAbout {
+            max-width: 1200px;
+            /* ความกว้างสูงสุด */
+            margin: 0 auto;
+            /* จัดกึ่งกลาง */
+            padding: 0 20px;
+            /* padding ซ้ายขวา */
+            margin-top: -230px;
+        }
+
+        .containerskill {
+            max-width: 1200px;
+            /* ความกว้างสูงสุด */
+            margin: 0 auto;
+            /* จัดกึ่งกลาง */
+            padding: 0 20px;
+            /* padding ซ้ายขวา */
+            margin-top: -230px;
         }
 
         /* ===== HEADER SECTION ===== */
         .header {
             /* background-image: url('../Profile/background.png'); */
-            background-size: cover; /* ปรับขนาดรูปให้คลุมทั้งพื้นที่ */
-            background-position: center; /* จัดรูปกึ่งกลาง */
-            min-height: 100vh; /*ความสูงขั้นต่ำเท่ากับหน้าจอ */
-            display: flex; /* ใช้ flexbox */
-            align-items: center; /* จัดแนวตั้งกึ่งกลาง */
-            color: white; /* สีข้อความเป็นสีขาว */
-            position: relative; /* กำหนด position สำหรับ overlay */
-            overflow: hidden; /* ซ่อนเนื้อหาที่เกิน */
+            background-size: cover;
+            /* ปรับขนาดรูปให้คลุมทั้งพื้นที่ */
+            background-position: center;
+            /* จัดรูปกึ่งกลาง */
+            min-height: 100vh;
+            /*ความสูงขั้นต่ำเท่ากับหน้าจอ */
+            display: flex;
+            /* ใช้ flexbox */
+            align-items: center;
+            /* จัดแนวตั้งกึ่งกลาง */
+            color: white;
+            /* สีข้อความเป็นสีขาว */
+            position: relative;
+            /* กำหนด position สำหรับ overlay */
+            overflow: hidden;
+            /* ซ่อนเนื้อหาที่เกิน */
             transition: color 0.3s ease;
         }
+
         .bg-img {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover; /* ปรับขนาดให้เต็มพื้นที่ */
-            z-index: -1; /* ส่งไปอยู่ด้านหลัง */
+            object-fit: cover;
+            /* ปรับขนาดให้เต็มพื้นที่ */
+            z-index: -1;
+            /* ส่งไปอยู่ด้านหลัง */
         }
+
         .scrolled {
             color: rgb(255, 255, 255);
         }
 
         /* สร้าง overlay สำหรับ header */
         .header::before {
-            content: ''; /* สร้าง pseudo element */
-            position: absolute; /* วางตำแหน่งแบบ absolute */
-            top: 0; /* ติดด้านบน */
-            left: 0; /* ติดด้านซ้าย */
-            right: 0; /* ติดด้านขวา */
-            bottom: 0; /* ติดด้านล่าง */
-            opacity: 0.3; /* ความโปร่งใส */
+            content: '';
+            /* สร้าง pseudo element */
+            position: absolute;
+            /* วางตำแหน่งแบบ absolute */
+            top: 0;
+            /* ติดด้านบน */
+            left: 0;
+            /* ติดด้านซ้าย */
+            right: 0;
+            /* ติดด้านขวา */
+            bottom: 0;
+            /* ติดด้านล่าง */
+            opacity: 0.3;
+            /* ความโปร่งใส */
         }
 
         /* จัดเลย์เอาต์เนื้อหาใน header แบบ grid */
         .header-content {
-            display: grid; /* ใช้ CSS Grid */
-            grid-template-columns: 1fr 1fr; /* แบ่งเป็น 2 คอลัมน์เท่าๆ กัน */
-            gap: 60px; /* ระยะห่างระหว่างคอลัมน์ */
-            align-items: center; /* จัดแนวตั้งกึ่งกลาง */
-            position: relative; /* อยู่เหนือ overlay */
-            z-index: 2; /* อยู่บน layer บน */
+            display: grid;
+            /* ใช้ CSS Grid */
+            grid-template-columns: 1fr 1fr;
+            /* แบ่งเป็น 2 คอลัมน์เท่าๆ กัน */
+            gap: 60px;
+            /* ระยะห่างระหว่างคอลัมน์ */
+            align-items: center;
+            /* จัดแนวตั้งกึ่งกลาง */
+            position: relative;
+            /* อยู่เหนือ overlay */
+            z-index: 2;
+            /* อยู่บน layer บน */
         }
 
         /* Animation สำหรับข้อความฝั่งซ้าย */
         .hero-text {
-            animation: slideInLeft 1s ease-out; /* เลื่อนเข้ามาจากซ้าย */
+            animation: slideInLeft 1s ease-out;
+            /* เลื่อนเข้ามาจากซ้าย */
         }
 
         /* Animation สำหรับรูปภาพฝั่งขวา */
         .hero-image {
-            text-align: center; /* จัดกึ่งกลาง */
-            animation: slideInRight 1s ease-out; /* เลื่อนเข้ามาจากขวา */
+            text-align: center;
+            /* จัดกึ่งกลาง */
+            animation: slideInRight 1s ease-out;
+            /* เลื่อนเข้ามาจากขวา */
         }
 
         /* ===== PROFILE IMAGE STYLES ===== */
         .profile-image {
-            width: auto; /* ความกว้าง */
-            height: auto; /* ความสูง */
-            border-radius: 20px; /* มุมโค้ง */
-            background: rgba(255, 255, 255, 0.1); /* พื้นหลังโปร่งใส */
-            backdrop-filter: blur(10px); /* เอฟเฟค blur */
-            display: flex; /* ใช้ flexbox */
-            align-items: center; /* จัดแนวตั้งกึ่งกลาง */
-            justify-content: center; /* จัดแนวนอนกึ่งกลาง */
-            margin: 0 auto; /* จัดกึ่งกลาง */
-            border: 3px solid rgba(255, 255, 255, 0.3); /* เส้นขอบโปร่งใส */
-            position: relative; /* สำหรับ positioning */
-            overflow: hidden; /* ซ่อนส่วนที่เกิน */
+            width: auto;
+            /* ความกว้าง */
+            height: auto;
+            /* ความสูง */
+            border-radius: 20px;
+            /* มุมโค้ง */
+            background: rgba(255, 255, 255, 0.1);
+            /* พื้นหลังโปร่งใส */
+            backdrop-filter: blur(10px);
+            /* เอฟเฟค blur */
+            display: flex;
+            /* ใช้ flexbox */
+            align-items: center;
+            /* จัดแนวตั้งกึ่งกลาง */
+            justify-content: center;
+            /* จัดแนวนอนกึ่งกลาง */
+            margin: 0 auto;
+            /* จัดกึ่งกลาง */
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            /* เส้นขอบโปร่งใส */
+            position: relative;
+            /* สำหรับ positioning */
+            overflow: hidden;
+            /* ซ่อนส่วนที่เกิน */
         }
 
         /* สไตล์สำหรับรูปภาพจริง */
         .profile-image img {
-            width: 200px; /* ความกว้างเต็ม */
-            height: 100%; /* ความสูงเต็ม */
-            object-fit: cover; /* ปรับขนาดรูปให้พอดี */
-            border-radius: 17px; /* มุมโค้งเล็กน้อย */
+            width: 200px;
+            /* ความกว้างเต็ม */
+            height: 100%;
+            /* ความสูงเต็ม */
+            object-fit: cover;
+            /* ปรับขนาดรูปให้พอดี */
+            border-radius: 17px;
+            /* มุมโค้งเล็กน้อย */
         }
 
         /* placeholder สำหรับรูปภาพ */
         .profile-placeholder {
-            font-size: 80px; /* ขนาดตัวอักษรใหญ่ */
-            opacity: 0.7; /* ความโปร่งใส */
+            font-size: 80px;
+            /* ขนาดตัวอักษรใหญ่ */
+            opacity: 0.7;
+            /* ความโปร่งใส */
         }
 
         /* หัวข้อหลัก */
         .hero-title {
-            font-size: 3.5rem; /* ขนาดตัวอักษรใหญ่ */
-            font-weight: 700; /* ความหนาของตัวอักษร */
-            margin-bottom: 10px; /* ระยะห่างด้านล่าง */
-            line-height: 1.2; /* ระยะห่างระหว่างบรรทัด */
+            font-size: 3.5rem;
+            /* ขนาดตัวอักษรใหญ่ */
+            font-weight: 700;
+            /* ความหนาของตัวอักษร */
+            margin-bottom: 10px;
+            /* ระยะห่างด้านล่าง */
+            line-height: 1.2;
+            /* ระยะห่างระหว่างบรรทัด */
         }
 
         /* หัวข้อรอง */
         .hero-subtitle {
-            font-size: 1.5rem; /* ขนาดตัวอักษรกลาง */
-            margin-bottom: 30px; /* ระยะห่างด้านล่าง */
-            opacity: 0.9; /* ความโปร่งใสเล็กน้อย */
-            font-weight: 300; /* ความหนาของตัวอักษรบาง */
+            font-size: 1.5rem;
+            /* ขนาดตัวอักษรกลาง */
+            margin-bottom: 30px;
+            /* ระยะห่างด้านล่าง */
+            opacity: 0.9;
+            /* ความโปร่งใสเล็กน้อย */
+            font-weight: 300;
+            /* ความหนาของตัวอักษรบาง */
         }
 
         /* คำอธิบาย */
         .hero-description {
-            font-size: 1.1rem; /* ขนาดตัวอักษรเล็ก */
-            opacity: 0.8; /* ความโปร่งใส */
-            line-height: 1.8; /* ระยะห่างระหว่างบรรทัด */
-            margin-bottom: 40px; /* ระยะห่างด้านล่าง */
+            font-size: 1.1rem;
+            /* ขนาดตัวอักษรเล็ก */
+            opacity: 0.8;
+            /* ความโปร่งใส */
+            line-height: 1.8;
+            /* ระยะห่างระหว่างบรรทัด */
+            margin-bottom: 40px;
+            /* ระยะห่างด้านล่าง */
         }
 
         /* กลุ่มปุ่ม Call-to-Action */
         .cta-buttons {
-            display: flex; /* ใช้ flexbox */
-            gap: 20px; /* ระยะห่างระหว่างปุ่ม */
-            flex-wrap: wrap; /* ให้ปุ่มขึ้นบรรทัดใหม่ได้ */
+            display: flex;
+            /* ใช้ flexbox */
+            gap: 20px;
+            /* ระยะห่างระหว่างปุ่ม */
+            flex-wrap: wrap;
+            /* ให้ปุ่มขึ้นบรรทัดใหม่ได้ */
         }
 
         /* สไตล์พื้นฐานสำหรับปุ่ม */
         .btn {
-            padding: 15px 30px; /* padding ด้านใน */
-            border: none; /* ไม่มีเส้นขอบ */
-            border-radius: 50px; /* มุมโค้งมาก */
-            font-size: 1rem; /* ขนาดตัวอักษร */
-            font-weight: 600; /* ความหนาของตัวอักษร */
-            cursor: pointer; /* เปลี่ยน cursor เป็น pointer */
-            transition: all 0.3s ease; /* Animation เมื่อ hover */
-            text-decoration: none; /* ไม่มีเส้นใต้ */
-            display: inline-block; /* แสดงเป็น inline-block */
-            text-align: center; /* จัดข้อความกึ่งกลาง */
+            padding: 15px 30px;
+            /* padding ด้านใน */
+            border: none;
+            /* ไม่มีเส้นขอบ */
+            border-radius: 50px;
+            /* มุมโค้งมาก */
+            font-size: 1rem;
+            /* ขนาดตัวอักษร */
+            font-weight: 600;
+            /* ความหนาของตัวอักษร */
+            cursor: pointer;
+            /* เปลี่ยน cursor เป็น pointer */
+            transition: all 0.3s ease;
+            /* Animation เมื่อ hover */
+            text-decoration: none;
+            /* ไม่มีเส้นใต้ */
+            display: inline-block;
+            /* แสดงเป็น inline-block */
+            text-align: center;
+            /* จัดข้อความกึ่งกลาง */
         }
 
         /* ปุ่มหลัก */
         .btn-primary {
-            background: white; /* พื้นหลังสีขาว */
-            color: #021568; /* ข้อความสีน้ำเงินเข้ม */
+            background: white;
+            /* พื้นหลังสีขาว */
+            color: #021568;
+            /* ข้อความสีน้ำเงินเข้ม */
         }
 
         /* เอฟเฟคเมื่อ hover ปุ่มหลัก */
         .btn-primary:hover {
-            transform: translateY(-3px); /* เลื่อนขึ้น */
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* เงา */
+            transform: translateY(-3px);
+            /* เลื่อนขึ้น */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            /* เงา */
         }
 
         /* ปุ่มรอง */
         .btn-outline {
-            background: transparent; /* พื้นหลังโปร่งใส */
-            color: white; /* ข้อความสีขาว */
-            border: 2px solid white; /* เส้นขอบสีขาว */
+            background: transparent;
+            /* พื้นหลังโปร่งใส */
+            color: white;
+            /* ข้อความสีขาว */
+            border: 2px solid white;
+            /* เส้นขอบสีขาว */
         }
 
         /* เอฟเฟคเมื่อ hover ปุ่มรอง */
         .btn-outline:hover {
-            background: white; /* พื้นหลังเป็นสีขาว */
-            color: #021568; /* ข้อความเปลี่ยนเป็นสีน้ำเงิน */
-            transform: translateY(-3px); /* เลื่อนขึ้น */
+            background: white;
+            /* พื้นหลังเป็นสีขาว */
+            color: #021568;
+            /* ข้อความเปลี่ยนเป็นสีน้ำเงิน */
+            transform: translateY(-3px);
+            /* เลื่อนขึ้น */
         }
 
         /* Animation เลื่อนเข้ามาจากซ้าย */
         @keyframes slideInLeft {
             from {
-                opacity: 0; /* เริ่มต้นโปร่งใส */
-                transform: translateX(-50px); /* เริ่มต้นจากซ้าย 50px */
+                opacity: 0;
+                /* เริ่มต้นโปร่งใส */
+                transform: translateX(-50px);
+                /* เริ่มต้นจากซ้าย 50px */
             }
+
             to {
-                opacity: 1; /* จบที่ไม่โปร่งใส */
-                transform: translateX(0); /* จบที่ตำแหน่งปกติ */
+                opacity: 1;
+                /* จบที่ไม่โปร่งใส */
+                transform: translateX(0);
+                /* จบที่ตำแหน่งปกติ */
             }
         }
 
         /* Animation เลื่อนเข้ามาจากขวา */
         @keyframes slideInRight {
             from {
-                opacity: 0; /* เริ่มต้นโปร่งใส */
-                transform: translateX(50px); /* เริ่มต้นจากขวา 50px */
+                opacity: 0;
+                /* เริ่มต้นโปร่งใส */
+                transform: translateX(50px);
+                /* เริ่มต้นจากขวา 50px */
             }
+
             to {
-                opacity: 1; /* จบที่ไม่โปร่งใส */
-                transform: translateX(0); /* จบที่ตำแหน่งปกติ */
+                opacity: 1;
+                /* จบที่ไม่โปร่งใส */
+                transform: translateX(0);
+                /* จบที่ตำแหน่งปกติ */
             }
         }
 
         /* ===== NAVIGATION STYLES ===== */
         .nav {
-            position: fixed; /* ติดที่ด้านบนตลอดเวลา */
-            top: 0; /* ติดด้านบน */
-            left: 0; /* ติดด้านซ้าย */
-            right: 0; /* ติดด้านขวา */
-            background: rgba(41, 41, 41, 0.95); /* พื้นหลังเทาโปร่งใส */
-            backdrop-filter: blur(10px); /* เอฟเฟค blur */
-            z-index: 1000; /* อยู่บนสุด */
-            padding: 15px 0; /* padding บนล่าง */
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1); /* เงา */
-            height: 60px; /* ความสูงคงที่ */
-            transform: translateY(-100%); /* เริ่มต้นซ่อนด้านบน */
-            animation: slideDown 1s ease-out 0.5s both; /* Animation เลื่อนลง */
+            position: fixed;
+            /* ติดที่ด้านบนตลอดเวลา */
+            top: 0;
+            /* ติดด้านบน */
+            left: 0;
+            /* ติดด้านซ้าย */
+            right: 0;
+            /* ติดด้านขวา */
+            background: rgba(41, 41, 41, 0.95);
+            /* พื้นหลังเทาโปร่งใส */
+            backdrop-filter: blur(10px);
+            /* เอฟเฟค blur */
+            z-index: 1000;
+            /* อยู่บนสุด */
+            padding: 15px 0;
+            /* padding บนล่าง */
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            /* เงา */
+            height: 60px;
+            /* ความสูงคงที่ */
+            transform: translateY(-100%);
+            /* เริ่มต้นซ่อนด้านบน */
+            animation: slideDown 1s ease-out 0.5s both;
+            /* Animation เลื่อนลง */
         }
 
         /* เนื้อหาใน navigation */
         .nav-content {
-            display: flex; /* ใช้ flexbox */
-            justify-content: space-between; /* กระจายออกทั้งสองฝั่ง */
-            align-items: center; /* จัดแนวตั้งกึ่งกลาง */
-            max-width: 1200px; /* ความกว้างสูงสุด */
-            margin: 0 auto; /* จัดกึ่งกลาง */
-            padding: 0 20px; /* padding ซ้ายขวา */
-            height: 100%; /* ความสูงเต็ม */
+            display: flex;
+            /* ใช้ flexbox */
+            justify-content: space-between;
+            /* กระจายออกทั้งสองฝั่ง */
+            align-items: center;
+            /* จัดแนวตั้งกึ่งกลาง */
+            max-width: 1200px;
+            /* ความกว้างสูงสุด */
+            margin: 0 auto;
+            /* จัดกึ่งกลาง */
+            padding: 0 20px;
+            /* padding ซ้ายขวา */
+            height: 100%;
+            /* ความสูงเต็ม */
         }
 
         /* โลโก้ */
         .logo {
-            font-size: 1.5rem; /* ขนาดตัวอักษร */
-            font-weight: 700; /* ความหนาของตัวอักษร */
-            color: #667eea; /* สีน้ำเงิน */
+            font-size: 1.5rem;
+            /* ขนาดตัวอักษร */
+            font-weight: 700;
+            /* ความหนาของตัวอักษร */
+            color: #667eea;
+            /* สีน้ำเงิน */
         }
 
         /* รายการลิงก์ใน navigation */
         .nav-links {
-            display: flex; /* ใช้ flexbox */
-            list-style: none; /* ไม่แสดง bullet points */
-            gap: 30px; /* ระยะห่างระหว่างลิงก์ */
+            display: flex;
+            /* ใช้ flexbox */
+            list-style: none;
+            /* ไม่แสดง bullet points */
+            gap: 30px;
+            /* ระยะห่างระหว่างลิงก์ */
         }
 
         /* ลิงก์ใน navigation */
         .nav-links a {
-            color: #fff; /* สีขาว */
-            text-decoration: none; /* ไม่มีเส้นใต้ */
-            font-weight: 500; /* ความหนาของตัวอักษร */
-            transition: color 0.3s ease; /* Animation เมื่อเปลี่ยนสี */
+            color: #fff;
+            /* สีขาว */
+            text-decoration: none;
+            /* ไม่มีเส้นใต้ */
+            font-weight: 500;
+            /* ความหนาของตัวอักษร */
+            transition: color 0.3s ease;
+            /* Animation เมื่อเปลี่ยนสี */
         }
 
         /* เอฟเฟคเมื่อ hover ลิงก์ */
         .nav-links a:hover {
-            color: #00ffea; /* เปลี่ยนเป็นสีฟ้าอ่อน */
+            color: #00ffea;
+            /* เปลี่ยนเป็นสีฟ้าอ่อน */
         }
 
         /* Animation เลื่อนลงสำหรับ nav */
         @keyframes slideDown {
             from {
-                transform: translateY(-100%); /* เริ่มต้นซ่อนด้านบน */
+                transform: translateY(-100%);
+                /* เริ่มต้นซ่อนด้านบน */
             }
+
             to {
-                transform: translateY(0); /* จบที่ตำแหน่งปกติ */
+                transform: translateY(0);
+                /* จบที่ตำแหน่งปกติ */
             }
         }
 
         /* ===== SECTIONS GENERAL STYLES ===== */
         .section {
-            padding: 120px 0 100px 0; /* padding บนและล่าง */
-            scroll-margin-top: 90px; /* ระยะห่างจาก nav เมื่อ scroll */
+            padding: 120px 0 100px 0;
+            /* padding บนและล่าง */
+            scroll-margin-top: 90px;
+            /* ระยะห่างจาก nav เมื่อ scroll */
         }
 
         /* หัวข้อหลักของแต่ละ section */
         .section-title {
-            font-size: 2.5rem; /* ขนาดตัวอักษรใหญ่ */
-            text-align: center; /* จัดกึ่งกลาง */
-            margin-bottom: 20px; /* ระยะห่างด้านล่าง */
-            color: #333; /* สีเทาเข้ม */
-            font-weight: 700; /* ความหนาของตัวอักษร */
+            font-size: 2.5rem;
+            /* ขนาดตัวอักษรใหญ่ */
+            text-align: center;
+            /* จัดกึ่งกลาง */
+            margin-bottom: 20px;
+            /* ระยะห่างด้านล่าง */
+            color: #333;
+            /* สีเทาเข้ม */
+            font-weight: 700;
+            /* ความหนาของตัวอักษร */
         }
-                /* หัวข้อหลักของแต่ละ section */
+
+        /* หัวข้อหลักของแต่ละ section */
         .section-about-title {
-            font-size: 2.5rem; /* ขนาดตัวอักษรใหญ่ */
-            text-align: center; /* จัดกึ่งกลาง */
-            margin-bottom: 80px; /* ระยะห่างด้านล่าง */
-            color: #333; /* สีเทาเข้ม */
-            font-weight: 700; /* ความหนาของตัวอักษร */
+            font-size: 2.5rem;
+            /* ขนาดตัวอักษรใหญ่ */
+            text-align: center;
+            /* จัดกึ่งกลาง */
+            margin-bottom: 80px;
+            /* ระยะห่างด้านล่าง */
+            color: #333;
+            /* สีเทาเข้ม */
+            font-weight: 700;
+            /* ความหนาของตัวอักษร */
         }
 
         /* หัวข้อรองของแต่ละ section */
         .section-subtitle {
-            text-align: center; /* จัดกึ่งกลาง */
-            color: #666; /* สีเทา */
-            font-size: 1.1rem; /* ขนาดตัวอักษร */
-            margin-bottom: 60px; /* ระยะห่างด้านล่าง */
-            max-width: 600px; /* ความกว้างสูงสุด */
-            margin-left: auto; /* จัดกึ่งกลางซ้าย */
-            margin-right: auto; /* จัดกึ่งกลางขวา */
+            text-align: center;
+            /* จัดกึ่งกลาง */
+            color: #666;
+            /* สีเทา */
+            font-size: 1.1rem;
+            /* ขนาดตัวอักษร */
+            margin-bottom: 60px;
+            /* ระยะห่างด้านล่าง */
+            max-width: 600px;
+            /* ความกว้างสูงสุด */
+            margin-left: auto;
+            /* จัดกึ่งกลางซ้าย */
+            margin-right: auto;
+            /* จัดกึ่งกลางขวา */
         }
+
         .section-about-subtitle {
-            text-align: center; /* จัดกึ่งกลาง */
-            color: #666; /* สีเทา */
-            font-size: 1.1rem; /* ขนาดตัวอักษร */
-            margin-bottom: -20px; /* ระยะห่างด้านล่าง */
-            max-width: 600px; /* ความกว้างสูงสุด */
-            margin-left: auto; /* จัดกึ่งกลางซ้าย */
-            margin-right: auto; /* จัดกึ่งกลางขวา */
+            text-align: center;
+            /* จัดกึ่งกลาง */
+            color: #666;
+            /* สีเทา */
+            font-size: 1.1rem;
+            /* ขนาดตัวอักษร */
+            margin-bottom: -20px;
+            /* ระยะห่างด้านล่าง */
+            max-width: 600px;
+            /* ความกว้างสูงสุด */
+            margin-left: auto;
+            /* จัดกึ่งกลางซ้าย */
+            margin-right: auto;
+            /* จัดกึ่งกลางขวา */
         }
 
         /* ===== ABOUT SECTION ===== */
         .about {
-            background: #f8faff; /* พื้นหลังสีฟ้าอ่อน */
-            padding-top: 140px; /* padding พิเศษสำหรับ section แรกหลัง nav */
+            background: #f8faff;
+            /* พื้นหลังสีฟ้าอ่อน */
+            padding-top: 140px;
+            /* padding พิเศษสำหรับ section แรกหลัง nav */
         }
 
         /* เลย์เอาต์ของ about section */
         .about-content {
-            width: 100vw;              /*เต็มความกว้างจอ*/
-            background: #f8fafffb;
-            display: flex;                   /* ใช้ Flex แทน Grid */
-            gap: 80px;
-            align-items:start;   
-            padding: 10px 120px;       /*เพิ่ม padding ให้ไม่ชิดขอบเกินไป */
-            box-sizing: border-box;    /*ให้ padding ไม่ดันขนาดออก */
-            margin-right: 100px;
-        }
-        
-        /* เลย์เอาต์ของ about section */
-        .about-Box {
-            width: 100vw;              /* เต็มความกว้างจอ */
+            width: 100vw;
+            /*เต็มความกว้างจอ*/
             background: #f8fafffb;
             display: flex;
-            flex-direction: column;    /* จัดเรียงแนวตั้ง */
-            gap: 20px;                 /* ระยะห่างระหว่าง h2 และ p */
-            align-items: center;       /* จัดกึ่งกลางแนวนอน */
-            justify-content: center;   /* จัดกึ่งกลางแนวตั้ง */
-            padding: 5% 10px;       /* เพิ่ม padding ให้ไม่ชิดขอบเกินไป */
-            box-sizing: border-box;    /* ให้ padding ไม่ดันขนาดออก */
-           /* min-height: 10vh;          /* ให้มีความสูงอย่างน้อยเพื่อให้เห็นการจัดกลาง */
+            /* ใช้ Flex แทน Grid */
+            gap: 80px;
+            align-items: start;
+            padding: 10px 120px;
+            /*เพิ่ม padding ให้ไม่ชิดขอบเกินไป */
+            box-sizing: border-box;
+            /*ให้ padding ไม่ดันขนาดออก */
+            margin-right: 100px;
+        }
+
+        /* เลย์เอาต์ของ about section */
+        .about-Box {
+            width: 100vw;
+            /* เต็มความกว้างจอ */
+            background: #f8fafffb;
+            display: flex;
+            flex-direction: column;
+            /* จัดเรียงแนวตั้ง */
+            gap: 20px;
+            /* ระยะห่างระหว่าง h2 และ p */
+            align-items: center;
+            /* จัดกึ่งกลางแนวนอน */
+            justify-content: center;
+            /* จัดกึ่งกลางแนวตั้ง */
+            padding: 5% 10px;
+            /* เพิ่ม padding ให้ไม่ชิดขอบเกินไป */
+            box-sizing: border-box;
+            /* ให้ padding ไม่ดันขนาดออก */
+            /* min-height: 10vh;          /* ให้มีความสูงอย่างน้อยเพื่อให้เห็นการจัดกลาง */
         }
 
 
         /* ข้อความใน about section */
         .about-text {
-            font-size: 1.1rem; /* ขนาดตัวอักษร */
-            line-height: 1.8; /* ระยะห่างระหว่างบรรทัด */
-            color: #4d4d4d; /* สีเทา */
+            font-size: 1.1rem;
+            /* ขนาดตัวอักษร */
+            line-height: 1.8;
+            /* ระยะห่างระหว่างบรรทัด */
+            color: #4d4d4d;
+            /* สีเทา */
         }
 
         /* paragraph ในข้อความ about */
         .about-text p {
-            margin-bottom: 40px; /* ระยะห่างด้านล่าง */
+            margin-bottom: 40px;
+            /* ระยะห่างด้านล่าง */
         }
 
         /* รูปภาพใน about section */
         .about-image {
-            text-align: center; /* จัดกึ่งกลาง */
+            text-align: center;
+            /* จัดกึ่งกลาง */
         }
 
         /* การ์ดใน about section */
         .about-card {
-            background: white; /* พื้นหลังสีขาว */
-            padding: 40px; /* padding ด้านใน */
-            border-radius: 20px; /* มุมโค้ง */
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1); /* เงา */
-            text-align: center; /* จัดข้อความกึ่งกลาง */
+            background: white;
+            /* พื้นหลังสีขาว */
+            padding: 40px;
+            /* padding ด้านใน */
+            border-radius: 20px;
+            /* มุมโค้ง */
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            /* เงา */
+            text-align: center;
+            /* จัดข้อความกึ่งกลาง */
         }
 
         /* ข้อมูลติดต่อ */
         .contact-info {
-            margin-top: 30px; /* ระยะห่างด้านบน */
+            margin-top: 30px;
+            /* ระยะห่างด้านบน */
         }
 
         /* แต่ละรายการข้อมูลติดต่อ */
         .contact-item {
-            display: flex; /* ใช้ flexbox */
-            align-items: center; /* จัดแนวตั้งกึ่งกลาง */
-            justify-content: center; /* จัดแนวนอนกึ่งกลาง */
-            margin-bottom: 15px; /* ระยะห่างด้านล่าง */
-            padding: 15px; /* padding ด้านใน */
-            background: #f8faff; /* พื้นหลังสีฟ้าอ่อน */
-            border-radius: 10px; /* มุมโค้ง */
-            transition: all 0.3s ease; /* Animation เมื่อ hover */
+            display: flex;
+            /* ใช้ flexbox */
+            align-items: center;
+            /* จัดแนวตั้งกึ่งกลาง */
+            justify-content: center;
+            /* จัดแนวนอนกึ่งกลาง */
+            margin-bottom: 15px;
+            /* ระยะห่างด้านล่าง */
+            padding: 15px;
+            /* padding ด้านใน */
+            background: #f8faff;
+            /* พื้นหลังสีฟ้าอ่อน */
+            border-radius: 10px;
+            /* มุมโค้ง */
+            transition: all 0.3s ease;
+            /* Animation เมื่อ hover */
         }
 
         /* เอฟเฟคเมื่อ hover รายการติดต่อ */
         .contact-item:hover {
-            background: #667eea; /* พื้นหลังสีน้ำเงิน */
-            color: white; /* ข้อความสีขาว */
-            transform: translateY(-2px); /* เลื่อนขึ้นเล็กน้อย */
+            background: #667eea;
+            /* พื้นหลังสีน้ำเงิน */
+            color: white;
+            /* ข้อความสีขาว */
+            transform: translateY(-2px);
+            /* เลื่อนขึ้นเล็กน้อย */
         }
 
         /* ไอคอนข้อมูลติดต่อ */
         .contact-icon {
-            margin-right: 15px; /* ระยะห่างด้านขวา */
-            font-size: 1.2rem; /* ขนาดตัวอักษร */
+            margin-right: 15px;
+            /* ระยะห่างด้านขวา */
+            font-size: 1.2rem;
+            /* ขนาดตัวอักษร */
         }
 
         /* ===== SKILLS SECTION ===== */
         .skills {
-            background: white; /* พื้นหลังสีขาว */
+            background: white;
+            /* พื้นหลังสีขาว */
         }
 
         /* Grid สำหรับแสดงทักษะ */
         .skills-grid {
-            display: grid; /* ใช้ CSS Grid */
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* คอลัมน์ปรับได้ */
-            gap: 30px; /* ระยะห่างระหว่างการ์ด */
+            display: grid;
+            /* ใช้ CSS Grid */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            /* คอลัมน์ปรับได้ */
+            gap: 30px;
+            /* ระยะห่างระหว่างการ์ด */
         }
 
         /* การ์ดทักษะแต่ละใบ */
         .skill-card {
-            background: white; /* พื้นหลังสีขาว */
-            padding: 40px 30px; /* padding ด้านใน */
-            border-radius: 20px; /* มุมโค้ง */
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1); /* เงา */
-            transition: all 0.3s ease; /* Animation เมื่อ hover */
-            text-align: center; /* จัดข้อความกึ่งกลาง */
+            background: white;
+            /* พื้นหลังสีขาว */
+            padding: 40px 30px;
+            /* padding ด้านใน */
+            border-radius: 20px;
+            /* มุมโค้ง */
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            /* เงา */
+            transition: all 0.3s ease;
+            /* Animation เมื่อ hover */
+            text-align: center;
+            /* จัดข้อความกึ่งกลาง */
         }
 
         /* เอฟเฟคเมื่อ hover การ์ดทักษะ */
         .skill-card:hover {
-            transform: translateY(-10px); /* เลื่อนขึ้น */
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15); /* เงาเพิ่มขึ้น */
+            transform: translateY(-10px);
+            /* เลื่อนขึ้น */
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            /* เงาเพิ่มขึ้น */
         }
 
         /* หัวข้อประเภททักษะ */
         .skill-category-title {
-            font-size: 1.3rem; /* ขนาดตัวอักษร */
-            font-weight: 600; /* ความหนาของตัวอักษร */
-            color: #333; /* สีเทาเข้ม */
-            margin-bottom: 30px; /* ระยะห่างด้านล่าง */
+            font-size: 1.3rem;
+            /* ขนาดตัวอักษร */
+            font-weight: 600;
+            /* ความหนาของตัวอักษร */
+            color: #333;
+            /* สีเทาเข้ม */
+            margin-bottom: 30px;
+            /* ระยะห่างด้านล่าง */
         }
 
         /* แต่ละรายการทักษะ */
         .skill-item {
-            display: flex; /* ใช้ flexbox */
-            align-items: center; /* จัดแนวตั้งกึ่งกลาง */
-            justify-content: space-between; /* กระจายระหว่างซ้ายขวา */
-            margin-bottom: 20px; /* ระยะห่างด้านล่าง */
-            padding: 15px; /* padding ด้านใน */
-            background: #f8faff; /* พื้นหลังสีฟ้าอ่อน */
-            border-radius: 10px; /* มุมโค้ง */
-            transition: all 0.3s ease; /* Animation เมื่อ hover */
+            display: flex;
+            /* ใช้ flexbox */
+            align-items: center;
+            /* จัดแนวตั้งกึ่งกลาง */
+            justify-content: space-between;
+            /* กระจายระหว่างซ้ายขวา */
+            margin-bottom: 20px;
+            /* ระยะห่างด้านล่าง */
+            padding: 15px;
+            /* padding ด้านใน */
+            background: #f8faff;
+            /* พื้นหลังสีฟ้าอ่อน */
+            border-radius: 10px;
+            /* มุมโค้ง */
+            transition: all 0.3s ease;
+            /* Animation เมื่อ hover */
         }
 
         /* เอฟเฟคเมื่อ hover รายการทักษะ */
         .skill-item:hover {
-            background: #667eea; /* พื้นหลังสีน้ำเงิน */
-            color: white; /* ข้อความสีขาว */
-            transform: translateX(5px); /* เลื่อนไปทางขวาเล็กน้อย */
+            background: #667eea;
+            /* พื้นหลังสีน้ำเงิน */
+            color: white;
+            /* ข้อความสีขาว */
+            transform: translateX(5px);
+            /* เลื่อนไปทางขวาเล็กน้อย */
         }
 
         /* ข้อมูลทักษะ (ไอคอน + ชื่อ) */
         .skill-info {
-            display: flex; /* ใช้ flexbox */
-            align-items: center; /* จัดแนวตั้งกึ่งกลาง */
-            gap: 15px; /* ระยะห่างระหว่างไอคอนและข้อความ */
+            display: flex;
+            /* ใช้ flexbox */
+            align-items: center;
+            /* จัดแนวตั้งกึ่งกลาง */
+            gap: 15px;
+            /* ระยะห่างระหว่างไอคอนและข้อความ */
         }
 
         /* โลโก้ทักษะ */
@@ -483,224 +733,400 @@
         .skill-logo img {
             width: 100%;
             height: 100%;
-            object-fit: contain; /* This prevents the image from being distorted */
+            object-fit: contain;
+            /* This prevents the image from being distorted */
         }
 
         /* แสดงระดับทักษะ */
         .skill-level {
-            padding: 5px 15px; /* padding ด้านใน */
-            border-radius: 20px; /* มุมโค้งมาก */
-            font-size: 0.9rem; /* ขนาดตัวอักษร */
-            font-weight: 500; /* ความหนาของตัวอักษร */
+            padding: 5px 15px;
+            /* padding ด้านใน */
+            border-radius: 20px;
+            /* มุมโค้งมาก */
+            font-size: 0.9rem;
+            /* ขนาดตัวอักษร */
+            font-weight: 500;
+            /* ความหนาของตัวอักษร */
         }
 
         /* สีสำหรับระดับดีมาก */
         .level-excellent {
-            background: #10b981; /* พื้นหลังสีเขียว */
-            color: white; /* ข้อความสีขาว */
+            background: #10b981;
+            /* พื้นหลังสีเขียว */
+            color: white;
+            /* ข้อความสีขาว */
         }
 
         /* สีสำหรับระดับปานกลาง */
         .level-good {
-            background: #f59e0b; /* พื้นหลังสีส้ม */
-            color: white; /* ข้อความสีขาว */
+            background: #f59e0b;
+            /* พื้นหลังสีส้ม */
+            color: white;
+            /* ข้อความสีขาว */
         }
 
         /* สีสำหรับระดับพื้นฐาน */
         .level-basic {
-            background: #6b7280; /* พื้นหลังสีเทา */
-            color: white; /* ข้อความสีขาว */
+            background: #6b7280;
+            /* พื้นหลังสีเทา */
+            color: white;
+            /* ข้อความสีขาว */
         }
 
         /* ===== EXPERIENCE SECTION ===== */
         .experience {
-            background: #f8faff; /* พื้นหลังสีฟ้าอ่อน */
+            background: #f8faff;
+            /* พื้นหลังสีฟ้าอ่อน */
         }
 
         /* Timeline container */
         .timeline {
-            position: relative; /* สำหรับ positioning */
-            max-width: 800px; /* ความกว้างสูงสุด */
-            margin: 0 auto; /* จัดกึ่งกลาง */
+            position: relative;
+            /* สำหรับ positioning */
+            max-width: 800px;
+            /* ความกว้างสูงสุด */
+            margin: 0 auto;
+            /* จัดกึ่งกลาง */
         }
 
         /* เส้น timeline กลาง */
         .timeline::before {
-            content: ''; /* สร้าง pseudo element */
-            position: absolute; /* วางตำแหน่งแบบ absolute */
-            left: 50%; /* กึ่งกลางแนวนอน */
-            top: 0; /* ด้านบน */
-            bottom: 0; /* ด้านล่าง */
-            width: 2px; /* ความหนาของเส้น */
-            background: #667eea; /* สีน้ำเงิน */
-            transform: translateX(-50%); /* จัดกึ่งกลางเส้น */
+            content: '';
+            /* สร้าง pseudo element */
+            position: absolute;
+            /* วางตำแหน่งแบบ absolute */
+            left: 50%;
+            /* กึ่งกลางแนวนอน */
+            top: 0;
+            /* ด้านบน */
+            bottom: 0;
+            /* ด้านล่าง */
+            width: 2px;
+            /* ความหนาของเส้น */
+            background: #667eea;
+            /* สีน้ำเงิน */
+            transform: translateX(-50%);
+            /* จัดกึ่งกลางเส้น */
         }
 
         /* แต่ละรายการใน timeline */
         .timeline-item {
-            position: relative; /* สำหรับ positioning */
-            margin-bottom: 50px; /* ระยะห่างด้านล่าง */
-            width: 45%; /* ความกว้าง 45% */
+            position: relative;
+            /* สำหรับ positioning */
+            margin-bottom: 50px;
+            /* ระยะห่างด้านล่าง */
+            width: 45%;
+            /* ความกว้าง 45% */
         }
 
         /* รายการ timeline คี่ (ซ้าย) */
         .timeline-item:nth-child(odd) {
-            left: 0; /* ชิดซ้าย */
-            text-align: right; /* ข้อความชิดขวา */
+            left: 0;
+            /* ชิดซ้าย */
+            text-align: right;
+            /* ข้อความชิดขวา */
         }
 
         /* รายการ timeline คู่ (ขวา) */
         .timeline-item:nth-child(even) {
-            left: 55%; /* เลื่อนไปขวา 55% */
-            text-align: left; /* ข้อความชิดซ้าย */
+            left: 55%;
+            /* เลื่อนไปขวา 55% */
+            text-align: left;
+            /* ข้อความชิดซ้าย */
         }
 
         /* เนื้อหาในแต่ละรายการ timeline */
         .timeline-content {
-            background: white; /* พื้นหลังสีขาว */
-            padding: 30px; /* padding ด้านใน */
-            border-radius: 15px; /* มุมโค้ง */
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* เงา */
-            position: relative; /* สำหรับ positioning */
+            background: white;
+            /* พื้นหลังสีขาว */
+            padding: 30px;
+            /* padding ด้านใน */
+            border-radius: 15px;
+            /* มุมโค้ง */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            /* เงา */
+            position: relative;
+            /* สำหรับ positioning */
         }
 
         /* ลูกศรชี้ไปที่เส้น timeline สำหรับรายการคี่ (ซ้าย) */
         .timeline-item:nth-child(odd) .timeline-content::after {
-            content: ''; /* สร้าง pseudo element */
-            position: absolute; /* วางตำแหน่งแบบ absolute */
-            right: -15px; /* ห่างจากขอบขวา 15px */
-            top: 20px; /* ห่างจากด้านบน 20px */
-            border: 15px solid transparent; /* สร้างสามเหลี่ยม */
-            border-left-color: white; /* สีด้านซ้ายเป็นสีขาว */
+            content: '';
+            /* สร้าง pseudo element */
+            position: absolute;
+            /* วางตำแหน่งแบบ absolute */
+            right: -15px;
+            /* ห่างจากขอบขวา 15px */
+            top: 20px;
+            /* ห่างจากด้านบน 20px */
+            border: 15px solid transparent;
+            /* สร้างสามเหลี่ยม */
+            border-left-color: white;
+            /* สีด้านซ้ายเป็นสีขาว */
         }
 
         /* ลูกศรชี้ไปที่เส้น timeline สำหรับรายการคู่ (ขวา) */
         .timeline-item:nth-child(even) .timeline-content::after {
-            content: ''; /* สร้าง pseudo element */
-            position: absolute; /* วางตำแหน่งแบบ absolute */
-            left: -15px; /* ห่างจากขอบซ้าย 15px */
-            top: 20px; /* ห่างจากด้านบน 20px */
-            border: 15px solid transparent; /* สร้างสามเหลี่ยม */
-            border-right-color: white; /* สีด้านขวาเป็นสีขาว */
+            content: '';
+            /* สร้าง pseudo element */
+            position: absolute;
+            /* วางตำแหน่งแบบ absolute */
+            left: -15px;
+            /* ห่างจากขอบซ้าย 15px */
+            top: 20px;
+            /* ห่างจากด้านบน 20px */
+            border: 15px solid transparent;
+            /* สร้างสามเหลี่ยม */
+            border-right-color: white;
+            /* สีด้านขวาเป็นสีขาว */
         }
 
         /* จุดบนเส้น timeline */
         .timeline-dot {
-            position: absolute; /* วางตำแหน่งแบบ absolute */
-            top: 20px; /* ห่างจากด้านบน 20px */
-            width: 20px; /* ความกว้าง */
-            height: 20px; /* ความสูง */
-            background: #667eea; /* พื้นหลังสีน้ำเงิน */
-            border-radius: 50%; /* ทำให้เป็นวงกลม */
-            border: 4px solid white; /* เส้นขอบสีขาว */
-            box-shadow: 0 0 0 4px #667eea; /* เงารอบ ๆ */
+            position: absolute;
+            /* วางตำแหน่งแบบ absolute */
+            top: 20px;
+            /* ห่างจากด้านบน 20px */
+            width: 20px;
+            /* ความกว้าง */
+            height: 20px;
+            /* ความสูง */
+            background: #667eea;
+            /* พื้นหลังสีน้ำเงิน */
+            border-radius: 50%;
+            /* ทำให้เป็นวงกลม */
+            border: 4px solid white;
+            /* เส้นขอบสีขาว */
+            box-shadow: 0 0 0 4px #667eea;
+            /* เงารอบ ๆ */
         }
 
         /* ตำแหน่งจุดสำหรับรายการคี่ (ซ้าย) */
         .timeline-item:nth-child(odd) .timeline-dot {
-            right: -50px; /* ห่างจากขอบขวา 50px */
+            right: -50px;
+            /* ห่างจากขอบขวา 50px */
         }
 
         /* ตำแหน่งจุดสำหรับรายการคู่ (ขวา) */
         .timeline-item:nth-child(even) .timeline-dot {
-            left: -50px; /* ห่างจากขอบซ้าย 50px */
+            left: -50px;
+            /* ห่างจากขอบซ้าย 50px */
         }
 
         /* วันที่ใน timeline */
         .timeline-date {
-            color: #667eea; /* สีน้ำเงิน */
-            font-weight: 600; /* ความหนาของตัวอักษร */
-            margin-bottom: 10px; /* ระยะห่างด้านล่าง */
+            color: #667eea;
+            /* สีน้ำเงิน */
+            font-weight: 600;
+            /* ความหนาของตัวอักษร */
+            margin-bottom: 10px;
+            /* ระยะห่างด้านล่าง */
         }
 
         /* หัวข้อตำแหน่งงาน */
         .timeline-title {
-            font-size: 1.3rem; /* ขนาดตัวอักษร */
-            font-weight: 600; /* ความหนาของตัวอักษร */
-            margin-bottom: 5px; /* ระยะห่างด้านล่าง */
-            color: #333; /* สีเทาเข้ม */
+            font-size: 1.3rem;
+            /* ขนาดตัวอักษร */
+            font-weight: 600;
+            /* ความหนาของตัวอักษร */
+            margin-bottom: 5px;
+            /* ระยะห่างด้านล่าง */
+            color: #333;
+            /* สีเทาเข้ม */
         }
 
         /* ชื่อบริษัท */
         .timeline-company {
-            color: #666; /* สีเทา */
-            margin-bottom: 15px; /* ระยะห่างด้านล่าง */
-            font-style: italic; /* ตัวอักษรเอียง */
+            color: #666;
+            /* สีเทา */
+            margin-bottom: 15px;
+            /* ระยะห่างด้านล่าง */
+            font-style: italic;
+            /* ตัวอักษรเอียง */
         }
 
         /* คำอธิบายงาน */
         .timeline-description {
-            color: #555; /* สีเทา */
-            line-height: 1.6; /* ระยะห่างระหว่างบรรทัด */
+            color: #555;
+            /* สีเทา */
+            line-height: 1.6;
+            /* ระยะห่างระหว่างบรรทัด */
         }
 
         /* ===== EDUCATION SECTION ===== */
         .education {
-            background: white; /* พื้นหลังสีขาว */
+            background: white;
+            /* พื้นหลังสีขาว */
         }
 
         /* การ์ดการศึกษา */
         .education-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* พื้นหลัง gradient */
-            color: white; /* ข้อความสีขาว */
-            padding: 60px 40px; /* padding ด้านใน */
-            border-radius: 25px; /* มุมโค้ง */
-            text-align: center; /* จัดข้อความกึ่งกลาง */
-            max-width: 600px; /* ความกว้างสูงสุด */
-            margin: 0 auto; /* จัดกึ่งกลาง */
-            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.3); /* เงาสีน้ำเงิน */
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            /* พื้นหลัง gradient */
+            color: white;
+            /* ข้อความสีขาว */
+            padding: 60px 40px;
+            /* padding ด้านใน */
+            border-radius: 25px;
+            /* มุมโค้ง */
+            text-align: center;
+            /* จัดข้อความกึ่งกลาง */
+            max-width: 600px;
+            /* ความกว้างสูงสุด */
+            margin: 0 auto;
+            /* จัดกึ่งกลาง */
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.3);
+            /* เงาสีน้ำเงิน */
         }
 
         /* ชื่อมหาวิทยาลัย */
         .education-card h3 {
-            font-size: 1.8rem; /* ขนาดตัวอักษร */
-            margin-bottom: 10px; /* ระยะห่างด้านล่าง */
+            font-size: 1.8rem;
+            /* ขนาดตัวอักษร */
+            margin-bottom: 10px;
+            /* ระยะห่างด้านล่าง */
         }
 
         /* ชื่อคณะ */
         .education-card .faculty {
-            font-size: 1.1rem; /* ขนาดตัวอักษร */
-            opacity: 0.9; /* ความโปร่งใสเล็กน้อย */
-            margin-bottom: 10px; /* ระยะห่างด้านล่าง */
+            font-size: 1.1rem;
+            /* ขนาดตัวอักษร */
+            opacity: 0.9;
+            /* ความโปร่งใสเล็กน้อย */
+            margin-bottom: 10px;
+            /* ระยะห่างด้านล่าง */
         }
 
         /* ชื่อสาขา */
         .education-card .major {
-            font-size: 1rem; /* ขนาดตัวอักษร */
-            opacity: 0.8; /* ความโปร่งใส */
-            margin-bottom: 20px; /* ระยะห่างด้านล่าง */
+            font-size: 1rem;
+            /* ขนาดตัวอักษร */
+            opacity: 0.8;
+            /* ความโปร่งใส */
+            margin-bottom: 20px;
+            /* ระยะห่างด้านล่าง */
         }
 
         /* แสดงเกรด GPA */
         .gpa {
-            font-size: 3rem; /* ขนาดตัวอักษรใหญ่ */
-            font-weight: 700; /* ความหนาของตัวอักษร */
-            margin: 30px 0; /* ระยะห่างบนล่าง */
-            background: rgba(255, 255, 255, 0.2); /* พื้นหลังโปร่งใส */
-            padding: 20px; /* padding ด้านใน */
-            border-radius: 15px; /* มุมโค้ง */
-            backdrop-filter: blur(10px); /* เอฟเฟค blur */
+            font-size: 3rem;
+            /* ขนาดตัวอักษรใหญ่ */
+            font-weight: 700;
+            /* ความหนาของตัวอักษร */
+            margin: 30px 0;
+            /* ระยะห่างบนล่าง */
+            background: rgba(255, 255, 255, 0.2);
+            /* พื้นหลังโปร่งใส */
+            padding: 20px;
+            /* padding ด้านใน */
+            border-radius: 15px;
+            /* มุมโค้ง */
+            backdrop-filter: blur(10px);
+            /* เอฟเฟค blur */
+        }
+
+        /* ปุ่มพื้นฐาน */
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #021568;
+            transform: translateY(-3px);
+        }
+
+        /* ===== CONTACT SECTION ===== */
+        .contact {
+            background: #f8faff;
+            padding: 100px 0;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-info {
+            margin: 30px 0;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .contact-icon {
+            margin-right: 10px;
+            font-size: 1.3rem;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 1rem;
+            width: 100%;
+            resize: none;
+        }
+
+        .contact-form button {
+            margin-top: 10px;
         }
 
         /* ===== RESPONSIVE DESIGN ===== */
         /* สำหรับหน้าจอขนาดเล็ก (มือถือ) */
         @media (max-width: 768px) {
+
             /* ปรับ header layout เป็นคอลัมน์เดียว */
             .header-content {
-                grid-template-columns: 1fr; /* คอลัมน์เดียว */
-                text-align: center; /* จัดกึ่งกลาง */
-                margin-top: 100px;;
-                gap: 40px; /* ลดระยะห่าง */
+                grid-template-columns: 1fr;
+                /* คอลัมน์เดียว */
+                text-align: center;
+                /* จัดกึ่งกลาง */
+                margin-top: 100px;
+                ;
+                gap: 40px;
+                /* ลดระยะห่าง */
             }
 
             /* ลดขนาดหัวข้อหลัก */
             .hero-title {
-                font-size: 2.5rem; /* ขนาดเล็กลง */
+                font-size: 2.5rem;
+                /* ขนาดเล็กลง */
             }
 
             /* ซ่อนเมนู navigation บนมือถือ */
             .nav-links {
-                display: none; /* ซ่อน */
+                display: none;
+                /* ซ่อน */
                 /* 333333 */
             }
 
@@ -708,72 +1134,93 @@
             .about-content {
                 grid-template-columns: 1fr;
                 gap: 20px;
-                padding: 20px; /* เพิ่ม padding ภายใน */
-                max-width: 800px; /* จำกัดความกว้างสูงสุด */
-                margin: 0 auto; /* จัดกึ่งกลาง */
+                padding: 20px;
+                /* เพิ่ม padding ภายใน */
+                max-width: 800px;
+                /* จำกัดความกว้างสูงสุด */
+                margin: 0 auto;
+                /* จัดกึ่งกลาง */
             }
 
             /* ปรับ skills grid เป็นคอลัมน์เดียว */
             .skills-grid {
-                grid-template-columns: 1fr; /* คอลัมน์เดียว */
+                grid-template-columns: 1fr;
+                /* คอลัมน์เดียว */
             }
 
             /* ปรับ timeline สำหรับมือถือ */
             .timeline::before {
-                left: 20px; /* เลื่อนเส้นไปซ้าย */
+                left: 20px;
+                /* เลื่อนเส้นไปซ้าย */
             }
 
             /* ปรับรายการ timeline ให้เรียงในคอลัมน์เดียว */
             .timeline-item {
-                width: calc(100% - 40px); /* ความกว้างเต็มลบ margin */
-                left: 40px !important; /* บังคับให้อยู่ซ้าย */
-                text-align: left !important; /* บังคับให้ข้อความชิดซ้าย */
+                width: calc(100% - 40px);
+                /* ความกว้างเต็มลบ margin */
+                left: 40px !important;
+                /* บังคับให้อยู่ซ้าย */
+                text-align: left !important;
+                /* บังคับให้ข้อความชิดซ้าย */
             }
 
             /* ปรับตำแหน่งจุด timeline */
             .timeline-item .timeline-dot {
-                left: -30px !important; /* บังคับให้อยู่ซ้าย */
+                left: -30px !important;
+                /* บังคับให้อยู่ซ้าย */
             }
 
             /* ปรับลูกศร timeline */
             .timeline-content::after {
-                left: -15px !important; /* บังคับให้อยู่ซ้าย */
-                border-right-color: white !important; /* สีขวา */
-                border-left-color: transparent !important; /* ซ้ายโปร่งใส */
+                left: -15px !important;
+                /* บังคับให้อยู่ซ้าย */
+                border-right-color: white !important;
+                /* สีขวา */
+                border-left-color: transparent !important;
+                /* ซ้ายโปร่งใส */
             }
 
             /* จัดปุ่มให้กึ่งกลาง */
             .cta-buttons {
-                justify-content: center; /* จัดกึ่งกลาง */
+                justify-content: center;
+                /* จัดกึ่งกลาง */
                 margin-left: 90px;
             }
 
             /* ลด padding ของ sections */
             .section {
-                padding: 100px 0 80px 0; /* ลด padding */
+                padding: 100px 0 80px 0;
+                /* ลด padding */
             }
 
             /* ลด padding พิเศษของ about section */
             .about {
-                padding-top: 120px; /* ลด padding */
+                padding-top: 120px;
+                /* ลด padding */
             }
         }
 
         /* ===== SCROLL ANIMATIONS ===== */
         /* คลาสสำหรับ animation เมื่อ scroll */
         .fade-in {
-            opacity: 0; /* เริ่มต้นโปร่งใส */
-            transform: translateY(30px); /* เริ่มต้นเลื่อนลง 30px */
-            transition: all 0.6s ease; /* Animation ใช้เวลา 0.6 วินาทีี */
+            opacity: 0;
+            /* เริ่มต้นโปร่งใส */
+            transform: translateY(30px);
+            /* เริ่มต้นเลื่อนลง 30px */
+            transition: all 0.6s ease;
+            /* Animation ใช้เวลา 0.6 วินาทีี */
         }
 
         /* เมื่อองค์ประกอบปรากฏบนหน้าจอ */
         .fade-in.visible {
-            opacity: 1; /* ไม่โปร่งใส */
-            transform: translateY(0); /* กลับสู่ตำแหน่งปกติ */
+            opacity: 1;
+            /* ไม่โปร่งใส */
+            transform: translateY(0);
+            /* กลับสู่ตำแหน่งปกติ */
         }
     </style>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="nav">
@@ -785,20 +1232,22 @@
                 <li><a href="#skills1">ทักษะ</a></li>
                 <li><a href="#experience">ประสบการณ์</a></li>
                 <li><a href="#education">ตัวอย่าง Test Case</a></li>
+                <li><a href="#contact">ช่องทางติดต่อ</a></li>
+
             </ul>
         </div>
     </nav>
     <!-- Header Section -->
     <section id="home1">
         <section id="home" class="header">
-        <img src="background.png" alt="Background" class="bg-img">
+            <img src="background.png" alt="Background" class="bg-img">
             <div class="container ">
                 <div class="header-content">
                     <div class="hero-text">
                         <h1 class="hero-title">Chaianun Yamtuan</h1>
                         <p class="hero-subtitle">Software Tester (Manual / Automated)</p>
                         <p class="hero-description">
-                            นักศึกษาชั้นปีที่ 4 สาขาเทคโนโลยีสารสนเทศ มีความสนใจด้าน Software Testing 
+                            นักศึกษาชั้นปีที่ 4 สาขาเทคโนโลยีสารสนเทศ มีความสนใจด้าน Software Testing
                             และมีประสบการณ์ในการเขียน test case, รายงานบั๊ก และทำงานร่วมกับทีมพัฒนา
                             เพื่อปรับปรุงคุณภาพซอฟต์แวร์
                         </p>
@@ -806,7 +1255,7 @@
                             <a href="#about" class="btn btn-primary">เกี่ยวกับฉัน</a>
                             <a href="mailto:chaianuntor@gmail.com" class="btn btn-outline">ติดต่อ</a>
                         </div>
-                        
+
                     </div>
                     <div class="hero-image">
                         <div class="profile-image">
@@ -821,36 +1270,39 @@
     <!-- About Section -->
     <section id="about1">
         <section id="about" class="section about trigger-section fade-in">
-                <div class="about-Box fade-in ">      
-                    <h2 class="section-about-title fade-in">About Me</h2>
-                    <p class="section-about-subtitle fade-in">เรื่องราวและประสบการณ์ของฉัน</p>
-                </div>
+            <div class="about-Box fade-in ">
+                <h2 class="section-about-title fade-in">About Me</h2>
+                <p class="section-about-subtitle fade-in">เรื่องราวและประสบการณ์ของฉัน</p>
+            </div>
 
 
-                <div class="about-content fade-in">
-                    <div class="about-text fade-in">
-                        <p>
-                            ฉันเป็นนักศึกษาชั้นปีที่ 4 สาขาเทคโนโลยีสารสนเทศ มีความสนใจด้าน <strong>Software Testing</strong> โดยเคยฝึกงานในตำแหน่ง 
-                            <strong>Software Tester</strong> มีประสบการณ์ในการเขียน Test Case, รายงานบั๊ก (Bug Report) และทำงานร่วมกับทีมพัฒนาเพื่อปรับปรุงคุณภาพของซอฟต์แวร์ 
-                            นอกจากนี้ยังมีประสบการณ์ในการดูแลระบบไอทีในบทบาท IT Support ของบริษัท เช่น การสนับสนุนผู้ใช้งานและการแก้ไขปัญหาทางเทคนิคเบื้องต้น
-                        </p>
-                        <p>
-                            ฉันเคยปฏิบัติงานเป็นผู้ช่วยสอนในห้องปฏิบัติการคอมพิวเตอร์ มีทักษะในการดูแลและบำรุงรักษาฮาร์ดแวร์ 
-                            รวมถึงความรู้พื้นฐานด้านการเขียนโปรแกรมและระบบเครือข่ายเบื้องต้น 
-                            พร้อมเปิดรับการเรียนรู้และพัฒนาตนเองอย่างต่อเนื่องในสายงานเทคโนโลยีสารสนเทศ
-                        </p>
-                    </div>
+            <div class="about-content fade-in">
+                <div class="about-text fade-in">
+                    <p>
+                        ฉันเป็นนักศึกษาชั้นปีที่ 4 สาขาเทคโนโลยีสารสนเทศ มีความสนใจด้าน <strong>Software
+                            Testing</strong> โดยเคยฝึกงานในตำแหน่ง
+                        <strong>Software Tester</strong> มีประสบการณ์ในการเขียน Test Case, รายงานบั๊ก (Bug Report)
+                        และทำงานร่วมกับทีมพัฒนาเพื่อปรับปรุงคุณภาพของซอฟต์แวร์
+                        นอกจากนี้ยังมีประสบการณ์ในการดูแลระบบไอทีในบทบาท IT Support ของบริษัท เช่น
+                        การสนับสนุนผู้ใช้งานและการแก้ไขปัญหาทางเทคนิคเบื้องต้น
+                    </p>
+                    <p>
+                        ฉันเคยปฏิบัติงานเป็นผู้ช่วยสอนในห้องปฏิบัติการคอมพิวเตอร์ มีทักษะในการดูแลและบำรุงรักษาฮาร์ดแวร์
+                        รวมถึงความรู้พื้นฐานด้านการเขียนโปรแกรมและระบบเครือข่ายเบื้องต้น
+                        พร้อมเปิดรับการเรียนรู้และพัฒนาตนเองอย่างต่อเนื่องในสายงานเทคโนโลยีสารสนเทศ
+                    </p>
                 </div>
+            </div>
         </section>
     </section>
 
     <!-- Skills Section -->
     <section id="skills1" class="section skills">
         <section id="skills" class="section skills">
-            <div class="container">
+            <div class="containerskill">
                 <h2 class="section-title fade-in">Skills & Expertise</h2>
                 <p class="section-subtitle fade-in">ทักษะและความเชี่ยวชาญของฉัน</p>
-                
+
                 <div class="skills-grid fade-in">
                     <div class="skill-card">
                         <h3 class="skill-category-title">Technical Skills</h3>
@@ -858,7 +1310,7 @@
                             <div class="skill-info">
                                 <div class="skill-logo">
                                     <img src="htmlCss.png" alt="Html/css">
-                                </div>                            
+                                </div>
                                 <span>HTML / CSS</span>
                             </div>
                             <span class="skill-level level-good">ปานกลาง</span>
@@ -867,7 +1319,7 @@
                             <div class="skill-info">
                                 <div class="skill-logo">
                                     <img src="PlayWright.png" alt="PlayWright">
-                                </div>                             
+                                </div>
                                 <span>Playwright</span>
                             </div>
                             <span class="skill-level level-good">ปานกลาง</span>
@@ -875,7 +1327,7 @@
                         <div class="skill-item">
                             <div class="skill-info">
                                 <div class="skill-logo"><b>T</b></div>
-                                
+
                                 <span>Test Case Writing</span>
                             </div>
                             <span class="skill-level level-good">ปานกลาง</span>
@@ -895,7 +1347,7 @@
                             <div class="skill-info">
                                 <div class="skill-logo">
                                     <img src="word.png" alt="word">
-                                </div>                            
+                                </div>
                                 <span>Microsoft Word</span>
                             </div>
                             <span class="skill-level level-excellent">ดี</span>
@@ -904,7 +1356,7 @@
                             <div class="skill-info">
                                 <div class="skill-logo">
                                     <img src="PowerPoint.png" alt="PowerPoint">
-                                </div>    
+                                </div>
                                 <span>PowerPoint</span>
                             </div>
                             <span class="skill-level level-excellent">ดี</span>
@@ -913,7 +1365,7 @@
                             <div class="skill-info">
                                 <div class="skill-logo">
                                     <img src="excel.png" alt="excel">
-                                </div>                              
+                                </div>
                                 <span>Excel</span>
                             </div>
                             <span class="skill-level level-good">ปานกลาง</span>
@@ -931,7 +1383,7 @@
                             <div class="skill-info">
                                 <div class="skill-logo">
                                     <img src="canva.png" alt="canva">
-                                </div>                              
+                                </div>
                                 <span>Canva</span>
                             </div>
                             <span class="skill-level level-excellent">ดี</span>
@@ -979,7 +1431,7 @@
         <div class="container">
             <h2 class="section-title fade-in">Work Experience</h2>
             <p class="section-subtitle fade-in">ประสบการณ์การทำงานและกิจกรรม</p>
-            
+
             <div class="timeline fade-in">
                 <div class="timeline-item">
                     <div class="timeline-content">
@@ -987,8 +1439,8 @@
                         <h3 class="timeline-title">Teaching Assistant (TA)</h3>
                         <p class="timeline-company">University of the Thai Chamber of Commerce</p>
                         <p class="timeline-description">
-                            ดูแลและจัดการห้องปฏิบัติการคอมพิวเตอร์ อัพเดท Windows และติดตั้งซอฟต์แวร์เพื่อการศึกษา 
-                            ติดตั้งและตั้งค่าอุปกรณ์ฮาร์ดแวร์คอมพิวเตอร์ แก้ไขปัญหาทางเทคนิค 
+                            ดูแลและจัดการห้องปฏิบัติการคอมพิวเตอร์ อัพเดท Windows และติดตั้งซอฟต์แวร์เพื่อการศึกษา
+                            ติดตั้งและตั้งค่าอุปกรณ์ฮาร์ดแวร์คอมพิวเตอร์ แก้ไขปัญหาทางเทคนิค
                             และช่วยเหลือนักศึกษาและอาจารย์เรื่องไอที
                         </p>
                     </div>
@@ -1001,66 +1453,122 @@
                         <h3 class="timeline-title">Intel Academy Workshop</h3>
                         <p class="timeline-company">Intel and Partners</p>
                         <p class="timeline-description">
-                            เข้าร่วม Workshop การประกอบพีซีและการสตรีมมิ่ง ทำงานร่วมกับผู้มีอิทธิพลด้านไอที 
+                            เข้าร่วม Workshop การประกอบพีซีและการสตรีมมิ่ง ทำงานร่วมกับผู้มีอิทธิพลด้านไอที
                             เช่น Toffee Bentaud และ ADBIG เรียนรู้เทคโนโลยีใหม่ๆ และเทคนิคการประกอบคอมพิวเตอร์
                         </p>
                     </div>
                     <div class="timeline-dot"></div>
                 </div>
 
-<div class="timeline-item">
-    <div class="timeline-content">
-        <div class="timeline-date">พฤษภาคม 2568 - สิงหาคม 2568 (ฝึกงาน)</div>
-        <h3 class="timeline-title">IT Support / Automated Tester</h3>
-        <p class="timeline-company">แมพพ้อยท์เอเซีย โลจีสติกส์ โซลูชั่นส์ จำกัด</p>
-        <ul class="timeline-description list-disc pl-5 space-y-1">
-            <li><strong>IT Support:</strong></li>
-            <ul class="pl-5">
-                <li>ดูแลคอมพิวเตอร์ของบริษัท และช่วยพนักงานเวลาคอมมีปัญหา เช่น เครื่องเสีย ติดไวรัส หรือใช้งานไม่ได้</li>
-                <li>ลงโปรแกรม ติดตั้ง Windows และตั้งค่าเครื่องพิมพ์ให้พร้อมใช้งาน</li>
-                <li>ซ่อมเครื่องคอมพิวเตอร์ หรือเปลี่ยนอะไหล่ที่เสีย</li>
-                <li>สร้างบัญชีให้พนักงานใหม่เข้าใช้งานระบบได้</li>
-                <li>สำรองข้อมูลไว้ เพื่อป้องกันข้อมูลสูญหาย</li>
-                <li>ประสานงานกับผู้ดูแลโปรแกรมจากบริษัทภายนอก</li>
-                <li>ช่วยตรวจสอบและเลือกซื้อคอมพิวเตอร์หรืออุปกรณ์ใหม่ให้บริษัท</li>
-            </ul>
-            <li><strong>Automated Tester:</strong></li>
-            <ul class="pl-5">
-                <li>เขียน Test Script, Test Case, Test Scenario</li>
-                <li>วิเคราะห์การทำงานของเว็บไซต์</li>
-                <li>พูดคุยประสานงานกับ Developer เพื่อปรับปรุงและแก้ไขข้อผิดพลาด</li>
-            </ul>
-        </ul>
-    </div>
-    <div class="timeline-dot"></div>
-</div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">พฤษภาคม 2568 - สิงหาคม 2568 (ฝึกงาน)</div>
+                        <h3 class="timeline-title">IT Support / Automated Tester</h3>
+                        <p class="timeline-company">แมพพ้อยท์เอเซีย โลจีสติกส์ โซลูชั่นส์ จำกัด</p>
+                        <ul class="timeline-description list-disc pl-5 space-y-1">
+                            <li><strong>IT Support:</strong></li>
+                            <ul class="pl-5">
+                                <li>ดูแลคอมพิวเตอร์ของบริษัท และช่วยพนักงานเวลาคอมมีปัญหา เช่น เครื่องเสีย ติดไวรัส
+                                    หรือใช้งานไม่ได้</li>
+                                <li>ลงโปรแกรม ติดตั้ง Windows และตั้งค่าเครื่องพิมพ์ให้พร้อมใช้งาน</li>
+                                <li>ซ่อมเครื่องคอมพิวเตอร์ หรือเปลี่ยนอะไหล่ที่เสีย</li>
+                                <li>สร้างบัญชีให้พนักงานใหม่เข้าใช้งานระบบได้</li>
+                                <li>สำรองข้อมูลไว้ เพื่อป้องกันข้อมูลสูญหาย</li>
+                                <li>ประสานงานกับผู้ดูแลโปรแกรมจากบริษัทภายนอก</li>
+                                <li>ช่วยตรวจสอบและเลือกซื้อคอมพิวเตอร์หรืออุปกรณ์ใหม่ให้บริษัท</li>
+                            </ul>
+                            <li><strong>Automated Tester:</strong></li>
+                            <ul class="pl-5">
+                                <li>เขียน Test Script, Test Case, Test Scenario</li>
+                                <li>วิเคราะห์การทำงานของเว็บไซต์</li>
+                                <li>พูดคุยประสานงานกับ Developer เพื่อปรับปรุงและแก้ไขข้อผิดพลาด</li>
+                            </ul>
+                        </ul>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
 
             </div>
         </div>
     </section>
 
-<section id="education" class="section education">
-    <div class="container">
-        <h2 class="section-title fade-in">ตัวอย่าง Test Case </h2>
-        <!-- <p class="section-subtitle fade-in">งานที่เคยทำ</p> -->
-        
-        <div class="education-card fade-in">
+    <section id="education" class="section education">
+        <div class="container">
+            <h2 class="section-title fade-in">ตัวอย่าง Test Case </h2>
+            <!-- <p class="section-subtitle fade-in">งานที่เคยทำ</p> -->
 
-            <!-- ลิงก์ไปยัง GitHub, LinkedIn, Google Sheets -->
-            <div class="social-links" style="margin-top: 10px;">
-                <!-- <a href="https://github.com/your-username" target="_blank" title="GitHub" style="margin-right: 10px;">
+            <div class="education-card fade-in">
+
+                <!-- ลิงก์ไปยัง GitHub, LinkedIn, Google Sheets -->
+                <div class="social-links" style="margin-top: 10px;">
+                    <!-- <a href="https://github.com/your-username" target="_blank" title="GitHub" style="margin-right: 10px;">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" width="30" height="30">
                 </a>
                 <a href="https://www.linkedin.com/in/your-profile" target="_blank" title="LinkedIn" style="margin-right: 10px;">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" width="30" height="30">
                 </a> -->
-                <a href="https://docs.google.com/spreadsheets/d/14MjexC-HNlyBbMtj4o8nJU2Ham2WdnqDzcpol1LhWO4/edit?usp=sharing" target="_blank" title="Google Sheets">
-                    <img src="https://www.gstatic.com/images/branding/product/1x/sheets_48dp.png" alt="Google Sheets" width="100" height="100">
-                </a>
+                    <a href="https://docs.google.com/spreadsheets/d/14MjexC-HNlyBbMtj4o8nJU2Ham2WdnqDzcpol1LhWO4/edit?usp=sharing"
+                        target="_blank" title="Google Sheets">
+                        <img src="https://www.gstatic.com/images/branding/product/1x/sheets_48dp.png"
+                            alt="Google Sheets" width="100" height="100">
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+    <!-- ===== CONTACT SECTION ===== -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <div class="contact-card">
+                <h2 class="section-title">Contact Me</h2>
+                <p class="section-subtitle">ติดต่อฉันได้ทางข้อมูลด้านล่าง</p>
+
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span class="contact-icon">📞</span>
+                        <span>0639464475</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📧</span>
+                        <span>chaianuntor@gmail.com</span>
+                    </div>
+                </div>
+
+                <!-- Contact Form
+                <form id="contactForm" class="contact-form">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+
+                แสดงผลลัพธ์
+                <div id="formResponse" style="margin-top:15px; font-weight:600;"></div> -->
+
+            </div>
+        </div>
+    </section>
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", function (e) {
+            e.preventDefault(); // ป้องกันการรีโหลดหน้า
+
+            let formData = new FormData(this);
+
+            fetch("contact.php", {
+                method: "POST",
+                body: formData
+            })
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("formResponse").innerHTML = data;
+                    document.getElementById("contactForm").reset(); // เคลียร์ฟอร์มเมื่อส่งเสร็จ
+                })
+                .catch(error => {
+                    document.getElementById("formResponse").innerHTML = "❌ เกิดข้อผิดพลาด โปรดลองใหม่อีกครั้ง";
+                });
+        });
+    </script>
 
     <script>
         // Scroll Animation
@@ -1069,7 +1577,7 @@
             elements.forEach(element => {
                 const elementTop = element.getBoundingClientRect().top;
                 const elementVisible = 150;
-                
+
                 if (elementTop < window.innerHeight - elementVisible) {
                     element.classList.add('visible');
                 }
@@ -1156,7 +1664,7 @@
             const scrolled = window.pageYOffset;
             const header = document.querySelector('.header');
             const speed = scrolled * 0.5;
-            
+
             if (header) {
                 header.style.transform = `translateY(${speed}px)`;
             }
@@ -1166,7 +1674,7 @@
         function typeWriter(element, text, speed = 100) {
             let i = 0;
             element.innerHTML = '';
-            
+
             function type() {
                 if (i < text.length) {
                     element.innerHTML += text.charAt(i);
@@ -1174,7 +1682,7 @@
                     setTimeout(type, speed);
                 }
             }
-            
+
             type();
         }
 
@@ -1190,12 +1698,12 @@
         // Add hover effects to skill cards
         document.addEventListener('DOMContentLoaded', () => {
             const skillCards = document.querySelectorAll('.skill-card');
-            
+
             skillCards.forEach(card => {
                 card.addEventListener('mouseenter', () => {
                     card.style.transform = 'translateY(-15px) scale(1.02)';
                 });
-                
+
                 card.addEventListener('mouseleave', () => {
                     card.style.transform = 'translateY(0) scale(1)';
                 });
@@ -1226,11 +1734,11 @@
 
         const observer1 = new IntersectionObserver(
             ([entry]) => {
-            if (entry.isIntersecting) {
-                header.style.color = 'black';   // เปลี่ยนสีเมื่อเจอ section นี้
-            } else {
-                header.style.color = 'white';   // สีเดิมเมื่อออกจาก section
-            }
+                if (entry.isIntersecting) {
+                    header.style.color = 'black';   // เปลี่ยนสีเมื่อเจอ section นี้
+                } else {
+                    header.style.color = 'white';   // สีเดิมเมื่อออกจาก section
+                }
             },
             { threshold: 0.5 }  // ครึ่งนึงของ section แสดงใน viewport ถึงเปลี่ยนสี
         );
